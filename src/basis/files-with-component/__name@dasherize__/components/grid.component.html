@@ -1,0 +1,54 @@
+<ng-container *ngIf="loaded">
+  <kendo-grid
+    [data]="listData"
+    [loading]="loading"
+    [resizable]="true"
+    [reorderable]="true"
+    [sort]="gridState.sort"
+    [sortable]="{
+      allowUnsort: true,
+      mode: 'multiple'
+    }"
+    [filter]="gridState.filter"
+    [filterable]="true"
+    [skip]="gridState.skip"
+    [pageSize]="gridState.take"
+    [pageable]="true"
+    style="max-height: 900px"
+    (dataStateChange)="onDataStateChange($event)"
+  >
+    <!-- 체크박스 -->
+    <kendo-grid-column title="선택" [width]="50">
+      <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+        <!-- <input type="checkbox" [checked]="isAllChecked" (change)="onCheckAll($event.target.checked)" /> -->
+        <app-checkbox [ngModel]="isAllChecked" binary="true" (onChange)="onCheckAll($event)"></app-checkbox>
+      </ng-template>
+      <ng-template kendoGridCellTemplate let-dataItem let-itemIndex="rowIndex">
+        <app-checkbox [value]="dataItem.rowid" [ngModel]="checkedRows" (onChange)="onCheckRow($event, dataItem)"></app-checkbox>
+      </ng-template>
+    </kendo-grid-column>
+    <!-- //체크박스 -->
+    <kendo-grid-column
+      *ngFor="let col of columns"
+      [field]="col.field"
+      [title]="col.title"
+      [sortable]="col.sortable === true"
+      [filterable]="col.filterable === true"
+      [autoSize]="true"
+    >
+      <ng-container *ngIf="col.field === 'hotelChainNameEn'">
+        <ng-template kendoGridFilterCellTemplate let-filter let-column="column">
+          <kendo-grid-string-filter-cell [column]="column" [filter]="filter">
+            <kendo-filter-contains-operator></kendo-filter-contains-operator>
+            <kendo-filter-eq-operator></kendo-filter-eq-operator>
+          </kendo-grid-string-filter-cell>
+        </ng-template>
+      </ng-container>
+
+    </kendo-grid-column>
+  </kendo-grid>
+</ng-container>
+
+<div *ngIf="loading">
+  로딩중...
+</div>

@@ -1,0 +1,4 @@
+<button (click)="onClickAdd()">추가</button>
+<button (click)="onClickDel()">삭제</button>
+<app-dropdown [options]="pageSizeOptions" [ngModel]="currentPageSize" (onChange)="onChangePageSize($event)"></app-dropdown>
+<hr>
