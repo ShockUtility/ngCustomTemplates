@@ -18,6 +18,8 @@ Angular JS 프로젝트를 위한 템플릿 제너레이터
 
 ```bash
 > npm i --no-save schematics-ngt-0.0.1.tgz
+	or
+> npm i -D --save https://github.com/ShockUtility/ngTemplates.git
 ```
 
 설치할 Angular 프로젝트 폴더에 "schematics-ngt-0.0.1.tgz" 패키지 파일을 복사 후 위와 같은 명령으로 설치한다.
