@@ -18,7 +18,7 @@ $ npm i ng-custom-templates
 $ ng g ng-custom-templates:run [My Templates Name]
 ```
 
-* My Templates Name : You should create and use a template for each folder in the 'templates' folder.
+※ My Templates Name : You should create and use a template for each folder in the 'templates' folder.
 
 <br>
 
