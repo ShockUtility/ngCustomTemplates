@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "BasisSchematics",
-  "title": "기초코드 템플릿",
+  "id": "RunSchematics",
+  "title": "Angular CLI Templates",
   "type": "object",
   "properties": {
     "templateName": {
       "type": "string",
-      "description": "템플릿 이름",
+      "description": "Template Name",
       "$default": {
         "$source": "argv",
         "index": 0
@@ -15,22 +15,27 @@
     "className": {
       "type": "string",
       "minLength": 2,
-      "description": "클래스 또는 파일 이름",
-      "x-prompt": "클래스명 입력 (ex> BsSalesCountryCode) : "
+      "description": "Class Name",
+      "x-prompt": "Class Name (ex> CountryCode) : "
     },
     "pageTitle": {
       "type": "string",
       "minLength": 2,
-      "description": "페이지 제목",
-      "x-prompt": "페이지 제목 (ex> 세일즈국가코드관리) : "
+      "description": "Page Title",
+      "x-prompt": "Page Title (ex> Country Code) : "
     },
     "targetPath": {
       "type": "string",
       "minLength": 1,
-      "description": "설치 경로",
-      "x-prompt": "설치 경로 : ",
-      "default": "/src/app/routes"
+      "description": "Install Path",
+      "x-prompt": "Install Path : ",
+      "default": "/src/app"
     }
   },
-  "required": ["templateName", "className", "pageTitle", "targetPath"]
+  "required": [
+    "templateName",
+    "className",
+    "pageTitle",
+    "targetPath"
+  ]
 }

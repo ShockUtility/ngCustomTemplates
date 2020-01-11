@@ -9,10 +9,10 @@ jsconfig.json
 .vscode/
 
 # Misc
-yb-templates/
-node_modules/
 npm-debug.log*
 yarn-error.log*
+yb-templates/
+node_modules/
 
 # Mac OSX Finder files.
 **/.DS_Store

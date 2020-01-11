@@ -1,71 +1,168 @@
-# 개요
+# ngCustomTemplates
 
-Angular JS 프로젝트를 위한 템플릿 제너레이터
+A development environment utility that makes it easy to use custom templates in Angular JS.
 
+<br><br>
 
-# 사용법
-
-### 컴파일 및 패키징
-
-```bash
-> npm run build
-> npm pack
-```
-
-위와같이 소스 폴더에서 컴파일 하고 패키징 하면 "schematics-ngt-0.0.1.tgz" 과 같은 패키지 파일이 생성된다.
-
-### 프로젝트에 설치
+# Install
 
 ```bash
-> npm i --no-save schematics-ngt-0.0.1.tgz
-	or
-> npm i -D --save https://github.com/ShockUtility/ngTemplates.git
+$ npm i ng-custom-templates 
 ```
 
-설치할 Angular 프로젝트 폴더에 "schematics-ngt-0.0.1.tgz" 패키지 파일을 복사 후 위와 같은 명령으로 설치한다.
+<br><br>
 
-### 테스트
-
-템플릿 생성 테스트를 위해서 샘플 프로젝트를 하나 만들고 프로젝트 루트 폴더에 templates 폴더를 생성해준다.
+# Use
 
 ```bash
-> ng g @schematics/ngt:run [templates 폴더 안에 있는 템플릿 폴더명]
-? 클래스명 입력 (ex> CountryCode) :  CountryCode
-? 페이지 제목 (ex> 국가코드관리) :  국가코드관리
-? 설치 경로 :  /src/app/routes
-CREATE src/app/routes/country-code/country-code-routing.module.ts (457 bytes)
-CREATE src/app/routes/country-code/country-code.module.ts (2238 bytes)
-CREATE src/app/routes/country-code/actions/country-code-api.actions.ts (367 bytes)
-CREATE src/app/routes/country-code/actions/country-code-list.actions.ts (1404 bytes)
-CREATE src/app/routes/country-code/actions/index.ts (245 bytes)
-CREATE src/app/routes/country-code/components/form-popup.component.html (22 bytes)
-CREATE src/app/routes/country-code/components/form-popup.component.ts (1169 bytes)
-CREATE src/app/routes/country-code/components/grid-control.component.html (222 bytes)
-CREATE src/app/routes/country-code/components/grid-control.component.ts (1273 bytes)
-CREATE src/app/routes/country-code/components/grid.component.html (1930 bytes)
-CREATE src/app/routes/country-code/components/grid.component.ts (3778 bytes)
-CREATE src/app/routes/country-code/components/index.ts (157 bytes)
-CREATE src/app/routes/country-code/components/search-area.component.html (356 bytes)
-CREATE src/app/routes/country-code/components/search-area.component.ts (1215 bytes)
-CREATE src/app/routes/country-code/containers/country-code-list.component.html (912 bytes)
-CREATE src/app/routes/country-code/containers/country-code-list.component.ts (5629 bytes)
-CREATE src/app/routes/country-code/containers/index.ts (56 bytes)
-CREATE src/app/routes/country-code/effects/country-code.effects.ts (931 bytes)
-CREATE src/app/routes/country-code/effects/index.ts (49 bytes)
-CREATE src/app/routes/country-code/models/index.ts (834 bytes)
-CREATE src/app/routes/country-code/reducers/country-code-list.reducer.ts (3150 bytes)
-CREATE src/app/routes/country-code/reducers/index.ts (2121 bytes)
-CREATE src/app/routes/country-code/services/country-code.service.ts (1165 bytes)
-CREATE src/app/routes/country-code/services/index.ts (49 bytes)
+$ ng g ng-custom-templates:run [My Templates Name]
 ```
 
+* My Templates Name : You should create and use a template for each folder in the 'templates' folder.
 
-# 템플릿 파일 업데이트
+<br>
 
-프로젝트 폴더에 'templates' 폴더를 생성하고 사용할 템플렛들을 폴더별로 만들고
+# Folder structure 
 
+[Before generating]
+```bash
+root 
+  |- e2e
+  |- node_modules
+  |- src                 <-- AngularJS source folder.
+       |- app 
+  |- templates		       <-- The folder you need to create!
+       |- demo		       <-- The templates to be used can be registered and used for each folder.		
+```
 
-# 참고 자료
+[Generating]
+```bash
+$ ng g ng-custom-templates:run demo
+? Class Name (ex> CountryCode) :  CountryCode
+? Page Title (ex> Country List) :  Country List
+? Install Path :  /src/app
+CREATE src/app/routes/country-code/country-code-routing.module.ts (218 bytes)
+CREATE src/app/routes/country-code/country-code.module.ts (432 bytes)
+CREATE src/app/routes/country-code/services/country-code.service.ts (161 bytes)
+```
+
+[After generating]
+```bash
+root 
+  |- e2e
+  |- node_modules
+  |- src
+       |- app 
+            |- routes
+                 |- country-code	<-- Generated folder
+  |- templates
+       |- demo
+```
+
+<br>
+
+# Conversion rules 
+
+## Propertis of ngCustomTemplates
+
+* className : The property to convert to the user specified class name.
+* pageTitle : The property to convert to the user specified page name.
+
+<br>
+
+## Usage - Folder & File
+
+[Before generating]
+```bash
+__className@dasherize                         <- folder
+    |- __className@dasherize.component.css    <- files
+    |- __className@dasherize.component.html
+    |- __className@dasherize.component.js
+```
+[After generating]
+```bash
+country-code                                  <- folder
+    |- country-code.component.css             <- files
+    |- country-code.component.html
+    |- country-code.component.js
+```
+
+<br>
+
+## Usage - Text in file
+
+[Before generating]
+```javascript
+export class <%= classify(className) %>Component {
+	const <%= camelize(className) %>;
+}
+```
+[After generating]
+ ```javascript
+export class CountryCodeComponent {
+	const countryCode;
+}
+```
+
+※ You can use the same syntax in all files such as html and css.
+
+<br>
+
+## Functions
+
+classify : Returns the UpperCamelCase form of a string.
+```javascript
+ classify('innerHTML');             // 'InnerHTML'
+ classify('action_name');           // 'ActionName'
+ classify('css-class-name');        // 'CssClassName'
+ classify('my favorite items');     // 'MyFavoriteItems'
+```
+
+camelize : Returns the lowerCamelCase form of a string.
+```javascript
+ camelize('innerHTML');             // 'innerHTML'
+ camelize('action_name');           // 'actionName'
+ camelize('css-class-name');        // 'cssClassName'
+ camelize('my favorite items');     // 'myFavoriteItems'
+ camelize('My Favorite Items');     // 'myFavoriteItems'
+```
+
+decamelize : Converts a camelized string into all lower case separated by underscores.
+```javascript
+ decamelize('innerHTML');           // 'inner_html'
+ decamelize('action_name');         // 'action_name'
+ decamelize('css-class-name');      // 'css-class-name'
+ decamelize('my favorite items');   // 'my favorite items'
+```
+
+dasherize : Replaces underscores, spaces, or camelCase with dashes.
+```javascript
+ dasherize('innerHTML');            // 'inner-html'
+ dasherize('action_name');          // 'action-name'
+ dasherize('css-class-name');       // 'css-class-name'
+ dasherize('my favorite items');    // 'my-favorite-items'
+```
+
+underscore : More general than decamelize. Returns the lower\_case\_and\_underscored form of a string.
+```javascript
+ underscore('innerHTML');           // 'inner_html'
+ underscore('action_name');         // 'action_name'
+ underscore('css-class-name');      // 'css_class_name'
+ underscore('my favorite items');   // 'my_favorite_items'
+```
+
+capitalize : Returns the Capitalized form of a string.
+```javascript
+ capitalize('innerHTML');           // 'InnerHTML'
+ capitalize('action_name');         // 'Action_name'
+ capitalize('css-class-name');      // 'Css-class-name'
+ capitalize('my favorite items');   // 'My favorite items'
+```
+
+<br>
+
+# References
+
 [Total Guide To Custom Angular Schematics](https://medium.com/@tomastrajan/total-guide-to-custom-angular-schematics-5c50cf90cdb4)
 
 [Schematics: Building blocks](https://dev.to/thisdotmedia/schematics-building-blocks-2mg3)

@@ -6,5 +6,5 @@ yb-templates/
 node_modules/
 
 src/**/*.map
-src/**/*.ts
 src/**/*_spec.js
+src/run/*.ts

@@ -1,13 +1,8 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "hello": {
-      "description": "샘플 템플릿",
-      "factory": "./hello/index#hello",
-      "schema": "./hello/schema.json"
-    },
     "run": {
-      "description": "템플릿 자동화",
+      "description": "AngularJS Custom Templages",
       "factory": "./run/index#run",
       "schema": "./run/schema.json"
     }
