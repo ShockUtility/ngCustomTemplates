@@ -1,5 +1,10 @@
 # Ignores TypeScript files, but keeps definitions.
-!*.d.ts
 **/.*
+*.code-workspace
+tsconfig.json
 yb-templates/
 node_modules/
+
+src/**/*.map
+src/**/*.ts
+src/**/*_spec.js
