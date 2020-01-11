@@ -1,21 +1,35 @@
 {
-  "name": "@schematics/ngt",
+  "name": "ng-custom-templates",
   "version": "0.0.1",
   "description": "쵝오의 커스텀 템플릿 관리 툴",
+  "homepage": "https://github.com/ShockUtility/ngTemplates.git",
+  "author": "Shock Utility <shock@docs.kr> (http://www.docs.kr)",
+  "contributors": [
+    "Shock Utility <shock@docs.kr> (http://www.docs.kr)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShockUtility/ngTemplates.git"
+  },
+  "keywords": [
+    "schematics",
+    "templates",
+    "angular"
+  ],
+  "bugs": {
+    "url": "https://github.com/ShockUtility/ngTemplates/issues",
+    "email": "shock@docs.kr"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
-  "keywords": [
-    "schematics"
-  ],
-  "author": "",
-  "license": "MIT",
+  "main": "index.js",
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^8.3.21",
-    "@angular-devkit/schematics": "^8.3.21",
     "@types/jasmine": "^3.3.9",
     "@types/node": "^8.0.31",
     "fs": "0.0.1-security",
@@ -24,5 +38,8 @@
   },
   "devDependencies": {
     "@angular/cli": "^8.3.22"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

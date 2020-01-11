@@ -6,11 +6,6 @@
       "factory": "./hello/index#hello",
       "schema": "./hello/schema.json"
     },
-    "basis": {
-      "description": "기초코드 템플릿",
-      "factory": "./basis/index#basis",
-      "schema": "./basis/schema.json"
-    },
     "run": {
       "description": "템플릿 자동화",
       "factory": "./run/index#run",
