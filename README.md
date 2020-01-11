@@ -31,13 +31,14 @@ root
   |- node_modules
   |- src                 <-- AngularJS source folder.
        |- app 
-  |- templates		       <-- The folder you need to create!
-       |- demo		       <-- The templates to be used can be registered and used for each folder.		
+  |- templates           <-- The folder you need to create!
+       |- demo           <-- The templates to be used can be registered and used for each folder.		
 ```
 
 [Generating]
 ```bash
 $ ng g ng-custom-templates:run demo
+
 ? Class Name (ex> CountryCode) :  CountryCode
 ? Page Title (ex> Country List) :  Country List
 ? Install Path :  /src/app
@@ -94,13 +95,13 @@ country-code                                  <- folder
 [Before generating]
 ```javascript
 export class <%= classify(className) %>Component {
-	const <%= camelize(className) %>;
+  const <%= camelize(className) %>;
 }
 ```
 [After generating]
  ```javascript
 export class CountryCodeComponent {
-	const countryCode;
+  const countryCode;
 }
 ```
 
