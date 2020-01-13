@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm](https://https://img.shields.io/badge/npm-6.12.0-blue.svg)](https://www.npmjs.com/~shockutility)
+[![npm: 6.12.0](https://img.shields.io/badge/npm-6.12.0-blue.svg)](https://www.npmjs.com/~shockutility)
 [![GitHub release](https://img.shields.io/github/release/ShockUtility/ngCustomTemplates.svg)](https://github.com/ShockUtility/ngCustomTemplates)
 [![English](https://github.com/ShockUtility/ngCustomTemplates/blob/master/res/en.png?raw=true)](https://github.com/ShockUtility/ngCustomTemplates)
 [![Korea](https://github.com/ShockUtility/ngCustomTemplates/blob/master/res/kr.png?raw=true)](https://github.com/ShockUtility/ngCustomTemplates/blob/master/README_kr.md)
@@ -80,6 +80,10 @@ root
 
 ## Usage - Folder & File
 
+※ Rules of Use : <span style="color:red">&#95;&#95;<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>@<span style="color:blue">&#91;FUNCTION_NAME&#93;</span>&#95;&#95;</span>
+※ Apply to : Folder & File
+
+
 [Before generating]
 ```bash
 __className@dasherize                         <- folder
@@ -98,6 +102,9 @@ country-code                                  <- folder
 <br>
 
 ## Usage - Text in file
+
+※ Rules of Use : <span style="color:red"><%= <span style="color:blue">&#91;FUNCTION_NAME&#93;</span>(<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>) %></span>
+※ Apply to : Text in file
 
 [Before generating]
 ```javascript
@@ -118,7 +125,7 @@ export class CountryCodeComponent {
 
 ## Functions
 
-classify : Returns the UpperCamelCase form of a string.
+※ classify : Returns the UpperCamelCase form of a string.
 ```javascript
  classify('innerHTML');             // 'InnerHTML'
  classify('action_name');           // 'ActionName'
@@ -126,7 +133,7 @@ classify : Returns the UpperCamelCase form of a string.
  classify('my favorite items');     // 'MyFavoriteItems'
 ```
 
-camelize : Returns the lowerCamelCase form of a string.
+※ camelize : Returns the lowerCamelCase form of a string.
 ```javascript
  camelize('innerHTML');             // 'innerHTML'
  camelize('action_name');           // 'actionName'
@@ -135,7 +142,7 @@ camelize : Returns the lowerCamelCase form of a string.
  camelize('My Favorite Items');     // 'myFavoriteItems'
 ```
 
-decamelize : Converts a camelized string into all lower case separated by underscores.
+※ decamelize : Converts a camelized string into all lower case separated by underscores.
 ```javascript
  decamelize('innerHTML');           // 'inner_html'
  decamelize('action_name');         // 'action_name'
@@ -143,7 +150,7 @@ decamelize : Converts a camelized string into all lower case separated by unders
  decamelize('my favorite items');   // 'my favorite items'
 ```
 
-dasherize : Replaces underscores, spaces, or camelCase with dashes.
+※ dasherize : Replaces underscores, spaces, or camelCase with dashes.
 ```javascript
  dasherize('innerHTML');            // 'inner-html'
  dasherize('action_name');          // 'action-name'
@@ -151,7 +158,7 @@ dasherize : Replaces underscores, spaces, or camelCase with dashes.
  dasherize('my favorite items');    // 'my-favorite-items'
 ```
 
-underscore : More general than decamelize. Returns the lower\_case\_and\_underscored form of a string.
+※ underscore : More general than decamelize. Returns the lower\_case\_and\_underscored form of a string.
 ```javascript
  underscore('innerHTML');           // 'inner_html'
  underscore('action_name');         // 'action_name'
@@ -159,7 +166,7 @@ underscore : More general than decamelize. Returns the lower\_case\_and\_undersc
  underscore('my favorite items');   // 'my_favorite_items'
 ```
 
-capitalize : Returns the Capitalized form of a string.
+※ capitalize : Returns the Capitalized form of a string.
 ```javascript
  capitalize('innerHTML');           // 'InnerHTML'
  capitalize('action_name');         // 'Action_name'

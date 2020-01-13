@@ -7,11 +7,11 @@
 
 # ngCustomTemplates
 
-A development environment utility that makes it easy to use custom templates in Angular JS.
+Angular JS에서 사용자 정의 템플릿을 쉽게 사용할 수 있는 개발 환경 유틸리티입니다.
 
 <br><br>
 
-# Install
+# 설치
 
 ```bash
 $ npm i ng-custom-templates
@@ -19,30 +19,30 @@ $ npm i ng-custom-templates
 
 <br><br>
 
-# Use
+# 사용법
 
 ```bash
 $ ng g ng-custom-templates:run [My Templates Name]
 ```
 
-※ My Templates Name : You should create and use a template for each folder in the 'templates' folder.
+※ My Templates Name : 'templates' 폴더에 사용할 템플릿을 작성하고 사용해야합니다.
 
 <br>
 
-# Folder structure
+# 프로젝트 폴더 구조
 
-[Before generating]
+[템플릿 생성 전]
 ```bash
 root
   |- e2e
   |- node_modules
-  |- src                 <-- AngularJS source folder.
+  |- src                 <-- AngularJS 소스 폴더.
        |- app
-  |- templates           <-- The folder you need to create!
-       |- demo           <-- The templates to be used can be registered and used for each folder.
+  |- templates           <-- 프로젝트 루트에 이 이름의 폴더가 있어야 합니다!
+       |- demo           <-- 사용할 템플릿을 폴더별로 만들어 사용합니다.
 ```
 
-[Generating]
+[템플릿 생성 명령]
 ```bash
 $ ng g ng-custom-templates:run demo
 
@@ -54,7 +54,7 @@ CREATE src/app/routes/country-code/country-code.module.ts (432 bytes)
 CREATE src/app/routes/country-code/services/country-code.service.ts (161 bytes)
 ```
 
-[After generating]
+[템플릿 생성 후]
 ```bash
 root
   |- e2e
@@ -69,56 +69,62 @@ root
 
 <br>
 
-# Conversion rules
+# 템플릿 만드는 규칙
 
-## Propertis of ngCustomTemplates
+## ngCustomTemplates 입력 파라미터
 
-* className : The property to convert to the user specified class name.
-* pageTitle : The property to convert to the user specified page name.
+* className : 클래스 이름 입력값.
+* pageTitle : 페이지 제목 입력값.
 
 <br>
 
-## Usage - Folder & File
+## 사용법 - 폴더 및 파일
 
-[Before generating]
+※ 작성 규칙 : <span style="color:red">&#95;&#95;<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>@<span style="color:blue">&#91;FUNCTION_NAME&#93;</span>&#95;&#95;</span>
+※ 적용 대상 : 폴더 및 파일
+
+[템플릿 생성 전]
 ```bash
-__className@dasherize                         <- folder
-    |- __className@dasherize.component.css    <- files
-    |- __className@dasherize.component.html
-    |- __className@dasherize.component.js
+__className@dasherize__                       <- 폴더
+    |- __className@dasherize__.component.css  <- 파일
+    |- __className@dasherize__.component.html
+    |- __className@dasherize__.component.js
 ```
-[After generating]
+[템플릿 생성 후]
 ```bash
-country-code                                  <- folder
-    |- country-code.component.css             <- files
+country-code                                  <- 폴더
+    |- country-code.component.css             <- 파일
     |- country-code.component.html
     |- country-code.component.js
 ```
 
 <br>
 
-## Usage - Text in file
+## 사용법 - 파일 내부 텍스트
 
-[Before generating]
+※ 작성 규칙 : <span style="color:red"><%= <span style="color:blue">&#91;FUNCTION_NAME&#93;</span>(<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>) %></span>
+※ 적용 대상 : 파일 내부 모든 텍스트
+
+[템플릿 생성 전]
 ```javascript
 export class <%= classify(className) %>Component {
   const <%= camelize(className) %>;
 }
 ```
-[After generating]
+[템플릿 생성 후]
  ```javascript
 export class CountryCodeComponent {
   const countryCode;
 }
 ```
 
-※ You can use the same syntax in all files such as html and css.
+※ html 및 css와 같은 모든 파일에서 동일한 규칙으로 사용할 수 있습니다.
 
 <br>
 
-## Functions
+## 함수 목록
 
-classify : Returns the UpperCamelCase form of a string.
+※ classify : Returns the UpperCamelCase form of a string.
 ```javascript
  classify('innerHTML');             // 'InnerHTML'
  classify('action_name');           // 'ActionName'
@@ -126,7 +132,7 @@ classify : Returns the UpperCamelCase form of a string.
  classify('my favorite items');     // 'MyFavoriteItems'
 ```
 
-camelize : Returns the lowerCamelCase form of a string.
+※ camelize : Returns the lowerCamelCase form of a string.
 ```javascript
  camelize('innerHTML');             // 'innerHTML'
  camelize('action_name');           // 'actionName'
@@ -135,7 +141,7 @@ camelize : Returns the lowerCamelCase form of a string.
  camelize('My Favorite Items');     // 'myFavoriteItems'
 ```
 
-decamelize : Converts a camelized string into all lower case separated by underscores.
+※ decamelize : Converts a camelized string into all lower case separated by underscores.
 ```javascript
  decamelize('innerHTML');           // 'inner_html'
  decamelize('action_name');         // 'action_name'
@@ -143,7 +149,7 @@ decamelize : Converts a camelized string into all lower case separated by unders
  decamelize('my favorite items');   // 'my favorite items'
 ```
 
-dasherize : Replaces underscores, spaces, or camelCase with dashes.
+※ dasherize : Replaces underscores, spaces, or camelCase with dashes.
 ```javascript
  dasherize('innerHTML');            // 'inner-html'
  dasherize('action_name');          // 'action-name'
@@ -151,7 +157,7 @@ dasherize : Replaces underscores, spaces, or camelCase with dashes.
  dasherize('my favorite items');    // 'my-favorite-items'
 ```
 
-underscore : More general than decamelize. Returns the lower\_case\_and\_underscored form of a string.
+※ underscore : More general than decamelize. Returns the lower\_case\_and\_underscored form of a string.
 ```javascript
  underscore('innerHTML');           // 'inner_html'
  underscore('action_name');         // 'action_name'
@@ -159,7 +165,7 @@ underscore : More general than decamelize. Returns the lower\_case\_and\_undersc
  underscore('my favorite items');   // 'my_favorite_items'
 ```
 
-capitalize : Returns the Capitalized form of a string.
+※ capitalize : Returns the Capitalized form of a string.
 ```javascript
  capitalize('innerHTML');           // 'InnerHTML'
  capitalize('action_name');         // 'Action_name'
@@ -169,7 +175,7 @@ capitalize : Returns the Capitalized form of a string.
 
 <br>
 
-# References
+# 참고 자료
 
 [Total Guide To Custom Angular Schematics](https://medium.com/@tomastrajan/total-guide-to-custom-angular-schematics-5c50cf90cdb4)
 
