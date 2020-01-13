@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm: 6.12.0](https://img.shields.io/badge/npm-6.12.0-blue.svg)](https://www.npmjs.com/~shockutility)
+[![npm: 6.12.0](https://img.shields.io/badge/npm-6.12.0-green.svg)](https://www.npmjs.com/~shockutility)
 [![GitHub release](https://img.shields.io/github/release/ShockUtility/ngCustomTemplates.svg)](https://github.com/ShockUtility/ngCustomTemplates)
 [![English](https://github.com/ShockUtility/ngCustomTemplates/blob/master/res/en.png?raw=true)](https://github.com/ShockUtility/ngCustomTemplates)
 [![Korea](https://github.com/ShockUtility/ngCustomTemplates/blob/master/res/kr.png?raw=true)](https://github.com/ShockUtility/ngCustomTemplates/blob/master/README_kr.md)
