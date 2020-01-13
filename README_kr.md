@@ -14,7 +14,7 @@ Angular JS에서 사용자 정의 템플릿을 쉽게 사용할 수 있는 개�
 # 설치
 
 ```bash
-$ npm i ng-custom-templates
+$ npm i -D ng-custom-templates
 ```
 
 <br><br>

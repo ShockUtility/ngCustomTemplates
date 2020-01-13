@@ -14,7 +14,7 @@ A development environment utility that makes it easy to use custom templates in 
 # Install
 
 ```bash
-$ npm i ng-custom-templates
+$ npm i -D ng-custom-templates
 ```
 
 <br><br>
