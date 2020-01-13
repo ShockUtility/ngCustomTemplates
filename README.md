@@ -80,7 +80,7 @@ root
 
 ## Usage - Folder & File
 
-※ Rules of Use : <span style="color:red">&#95;&#95;<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>@<span style="color:blue">&#91;FUNCTION_NAME&#93;</span>&#95;&#95;</span>
+※ Rules of Use : <b>&#95;&#95;</b>&#91;PROPERTY_NAME&#93;<b>@</b>&#91;FUNCTION_NAME&#93;<b>&#95;&#95;</b>
 ※ Apply to : Folder & File
 
 
@@ -103,7 +103,7 @@ country-code                                  <- folder
 
 ## Usage - Text in file
 
-※ Rules of Use : <span style="color:red"><%= <span style="color:blue">&#91;FUNCTION_NAME&#93;</span>(<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>) %></span>
+※ Rules of Use : <b><%=</b> &#91;FUNCTION_NAME&#93;<b>(</b>&#91;PROPERTY_NAME&#93;<b>) %></b>
 ※ Apply to : Text in file
 
 [Before generating]

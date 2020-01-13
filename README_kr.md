@@ -80,7 +80,7 @@ root
 
 ## 사용법 - 폴더 및 파일
 
-※ 작성 규칙 : <span style="color:red">&#95;&#95;<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>@<span style="color:blue">&#91;FUNCTION_NAME&#93;</span>&#95;&#95;</span>
+※ 작성 규칙 : <b>&#95;&#95;</b>&#91;PROPERTY_NAME&#93;<b>@</b>&#91;FUNCTION_NAME&#93;<b>&#95;&#95;</b>
 ※ 적용 대상 : 폴더 및 파일
 
 [템플릿 생성 전]
@@ -102,7 +102,7 @@ country-code                                  <- 폴더
 
 ## 사용법 - 파일 내부 텍스트
 
-※ 작성 규칙 : <span style="color:red"><%= <span style="color:blue">&#91;FUNCTION_NAME&#93;</span>(<span style="color:blue">&#91;PROPERTY_NAME&#93;</span>) %></span>
+※ 작성 규칙 : <b><%=</b> &#91;FUNCTION_NAME&#93;<b>(</b>&#91;PROPERTY_NAME&#93;<b>) %></b>
 ※ 적용 대상 : 파일 내부 모든 텍스트
 
 [템플릿 생성 전]
