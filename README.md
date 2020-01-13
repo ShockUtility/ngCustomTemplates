@@ -80,8 +80,8 @@ root
 
 ## Usage - Folder & File
 
-※ Rules of Use : <b>&#95;&#95;</b>&#91;PROPERTY_NAME&#93;<b>@</b>&#91;FUNCTION_NAME&#93;<b>&#95;&#95;</b>
-※ Apply to : Folder & File
+※ Rules of Use : <b>&#95;&#95;</b>&#91;PROPERTY_NAME&#93;<b>@</b>&#91;FUNCTION_NAME&#93;<b>&#95;&#95;</b><br>
+※ Apply to : Folder & File<br>
 
 
 [Before generating]
@@ -103,8 +103,8 @@ country-code                                  <- folder
 
 ## Usage - Text in file
 
-※ Rules of Use : <b><%=</b> &#91;FUNCTION_NAME&#93;<b>(</b>&#91;PROPERTY_NAME&#93;<b>) %></b>
-※ Apply to : Text in file
+※ Rules of Use : <b><%=</b> &#91;FUNCTION_NAME&#93;<b>(</b>&#91;PROPERTY_NAME&#93;<b>) %></b><br>
+※ Apply to : Text in file<br>
 
 [Before generating]
 ```javascript
