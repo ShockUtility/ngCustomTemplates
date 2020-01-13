@@ -1,6 +1,6 @@
 {
   "name": "ng-custom-templates",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A development environment utility that makes it easy to use custom templates in Angular JS.",
   "homepage": "https://github.com/ShockUtility/ngTemplates.git",
   "author": "Shock Utility <shock@docs.kr> (http://www.docs.kr)",
